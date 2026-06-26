@@ -462,12 +462,16 @@ app.get('/movimientos/filtrar', async (req, res) => {
 app.get('/test-db', async (req, res) => {
   try {
     const connection = await mysql.createConnection(dbConfig);
+    console.log('Intentando conexión a base de datos...');
     const [rows] = await connection.execute('SELECT 1 + 1 AS result');
+    console.log('Consulta ejecutada correctamente:', rows);
     await connection.end();
     res.json({ success: true, result: rows[0].result });
   } catch (err) {
+    console.error('Error en conexión a DB:', err.message);
     res.status(500).json({ success: false, error: err.message });
   }
 });
+
 
 
