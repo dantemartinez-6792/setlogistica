@@ -459,3 +459,15 @@ app.get('/movimientos/filtrar', async (req, res) => {
   }
 });
 
+app.get('/test-db', async (req, res) => {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    const [rows] = await connection.execute('SELECT 1 + 1 AS result');
+    await connection.end();
+    res.json({ success: true, result: rows[0].result });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
