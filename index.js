@@ -11,12 +11,13 @@ app.use(express.json());
 
 // Configuración conexión base de datos (cambia con tus datos)
 const dbConfig = {
-  host: 'thomas.proxy.rlwy.net',
-  user: 'root',
-  password: 'RcDpGWiOfEcJfrvgitobFlzbGrOkiJwb',
-  database: 'railway',
-  port: 34751
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT || 3306,
 };
+
 
 // Ruta para obtener todos los clientes
 app.get('/clientes', async (req, res) => {
