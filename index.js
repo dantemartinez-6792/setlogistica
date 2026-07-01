@@ -18,7 +18,9 @@ const dbConfig = {
   port: process.env.MYSQLPORT || 3306,
 };
 
-
+app.listen(port, () => {
+  console.log(`Servidor backend escuchando en http://localhost:${port}`);
+});
 // Ruta para obtener todos los clientes
 app.get('/clientes', async (req, res) => {
   try {
