@@ -25,7 +25,7 @@ app.listen(port, () => {
 app.get('/clientes', async (req, res) => {
   try {
     const connection = await mysql.createConnection(dbConfig);
-    const [rows] = await connection.execute('SELECT * FROM cliente');
+    const [rows] = await connection.execute('SELECT * FROM Cliente');
     await connection.end();
     res.json(rows);
   } catch (err) {
