@@ -59,15 +59,6 @@ app.post('/clientes', async (req, res) => {
   }
 });
 
-
-
-
-// Aquí puedes agregar rutas para editar y eliminar...
-
-app.listen(port, () => {
-  console.log(`Servidor backend escuchando en http://localhost:${port}`);
-});
-
 // Ruta para editar un cliente existente (con PUT)
 app.put('/clientes/:id', async (req, res) => {
   const id = req.params.id;
